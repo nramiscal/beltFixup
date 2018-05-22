@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'myapp/css/style.css'%}">
+        <meta charset="utf-8">
+        <title>Destination</title>
+    </head>
+    <body>
+        <h1>{{trip.dest}}</h1>
+        <p>Planned By: {{trip.planner.name}}</p>
+        <p>Description: {{trip.desc}}</p>
+        <p>Travel Date From: {{trip.start_date}}</p>
+        <p>Travel Date To: {{trip.end_date}}</p>
+        <br>
+        <h2>Other Users Joining This Trip</h2>
+        {% for user in other_users %}
+            <p>{{user.name}}</p>
+        {% endfor %}
+        <a href="/my_page"><button id="home">Home</button></a>
+        <a href="/logout"><button id="logout">Logout</button></a><br><br>
+    </body>
+</html>

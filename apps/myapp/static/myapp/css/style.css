@@ -1,0 +1,42 @@
+fieldset {
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    height: 300px;
+}
+
+.error {
+    color: red;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid lavender;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: lavender;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 110%;
+    background-color: green;
+    color: white;}
+
+#home {
+    background-color: blue;
+}
+
+#logout {
+    background-color: red;
+}

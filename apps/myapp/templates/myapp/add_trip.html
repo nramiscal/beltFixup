@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'myapp/css/style.css'%}">
+        <meta charset="utf-8">
+        <title>Add Trip</title>
+    </head>
+    <body>
+        <h1>Add a Trip</h1>
+        <a href="/my_page"><button id="home">Home</button></a>
+        <a href="/logout"><button id="logout">Logout</button></a><br><br>
+        {% if messages %}
+            {% for message in messages %}
+                    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        <form class="" action="/create_trip" method="post">
+            {% csrf_token %}
+            <input type="text" name="dest" placeholder="Destination"><br>
+            <input type="text" name="desc" placeholder="Description"><br>
+            <input type="date" name="start_date" placeholder="Start Date"><br>
+            <input type="date" name="end_date" placeholder="End Date"><br>
+            <input type="submit" name="" value="Create Trip"><br>
+        </form>
+
+    </body>
+</html>

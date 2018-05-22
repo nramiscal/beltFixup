@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'myapp/css/style.css'%}">
+        <meta charset="utf-8">
+        <title>My Page</title>
+    </head>
+    <body>
+        <h1>Welcome {{request.session.name}}!</h1>
+        <!-- <p>Id: {{request.session.id}}</p> -->
+        <a href="/logout"><button id="logout">Logout</button></a>
+        <h2>Your Trip Schedules</h2>
+        <!-- {{my_trips}} -->
+        <table>
+            <tr>
+                <th>Destination</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Plan</th>
+            </tr>
+            {% for trip in my_trips %}
+                <tr>
+                    <td><a href="/show_trip/{{trip.id}}">{{trip.dest}}</a></td>
+                    <td>{{trip.start_date}}</td>
+                    <td>{{trip.end_date}}</td>
+                    <td>{{trip.desc}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Other User's Travel Plans</h2>
+        <!-- {{others_trips}} -->
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Destination</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Do You Want To Join?</th>
+            </tr>
+            {% for trip in others_trips %}
+                <tr>
+                    <td>{{trip.planner.name}}</td>
+                    <td><a href="/show_trip/{{trip.id}}">{{trip.dest}}</a></td>
+                    <td>{{trip.start_date}}</td>
+                    <td>{{trip.end_date}}</td>
+                    <td><a href="/join/{{trip.id}}">Join</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <a href="/add_trip"><button>Add Trip</button></a>
+    </body>
+</html>
